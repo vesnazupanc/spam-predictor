@@ -1,0 +1,59 @@
+% when converting Markdown files, use the -H option to refer the head.tex file
+
+\usepackage{fancyvrb,newverbs,xcolor}
+\usepackage{booktabs}
+
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+% \hypersetup{
+%  pdftitle={Navodila za pripravo dokumentacije - sphinx},
+%  pdfauthor={Vesna Zupanc},
+%  pdfsubject={Dokumentacija},
+%  pdfkeywords={dokumentacija,sphinx,projekt}
+%}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\usepackage{graphicx}
+\usepackage{float}
+\floatplacement{figure}{H}
+
+
+% change background color for inline code in
+% markdown files. The following code does not work well for
+% long text as the text will exceed the page boundary
+\definecolor{bgcolor}{HTML}{F4F4F4}
+\let\oldtexttt\texttt
+
+\renewcommand{\texttt}[1]{
+  \colorbox{bgcolor}{\oldtexttt{#1}}
+  }
+
+
+% Change the default style of block quote
+% \usepackage{framed}
+% \usepackage{quoting}
+
+% \definecolor{bgcolor}{HTML}{DADADA}
+% \colorlet{shadecolor}{bgcolor}
+% define a new environment shadedquotation. You can change leftmargin and
+% rightmargin as you wish.
+% \newenvironment{shadedquotation}
+%  {\begin{shaded*}
+%   \quoting[leftmargin=1em, rightmargin=0pt, vskip=0pt, font=itshape]
+%  }
+%  {\endquoting
+%  \end{shaded*}
+%  }
+
+%
+% \def\quote{\shadedquotation}
+% \def\endquote{\endshadedquotation}
+
+
+% Start a new page after toc
+\let\oldtoc\tableofcontents
+\renewcommand{\tableofcontents}{\oldtoc\newpage}
